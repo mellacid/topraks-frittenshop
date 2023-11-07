@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #d89c6a;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  height: 20vh;
+  background-image: url(img/potatoes.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.logo {
+  color: white;
+  font-size: 1.7rem;
+}
+
+i {
+  color: white;
+  font-size: 2rem;
+}
