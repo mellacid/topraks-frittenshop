@@ -7,6 +7,7 @@
 body {
   font-family: "Poppins", sans-serif;
   background-color: #d89c6a;
+  overflow: hidden;
 }
 
 header {
@@ -27,5 +28,45 @@ header {
 
 i {
   color: white;
+  font-size: 3rem;
+}
+
+.sidebar {
+  background-color: #bc7031;
+  width: 200px;
+  padding: 5px;
+  height: 64vh;
+  margin-top: 20px;
+  margin-left: 20px;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar ul {
+  list-style: none;
   font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  color: white;
+
+  justify-content: space-around;
+}
+
+footer {
+  background-color: #bc7031;
+  height: 12vh;
+  padding: 10px;
+  padding-top: 20px;
+  margin-top: 20px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
 }
