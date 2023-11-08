@@ -1,8 +1,5 @@
 import { fritten } from "./data/fritten.js";
-
 import { checkHit, jump } from "./functionality/game.js";
-
-console.log(fritten);
 
 // GAME
 
@@ -33,9 +30,17 @@ document.addEventListener("keyup", (event) => {
 checkHit(window, dog, block, loseText, winText, jumpCount);
 
 block.addEventListener("animationend", () => {
+  if (jumpCount === 9) {
+    winText.style.display = "block";
+    block.style.animation = "none";
+    block.style.display = "none;";
+    dog.style.display = "none";
+  }
   jumpCount += 1;
   jumpCountElement.innerHTML = jumpCount;
   block.classList.remove("block-moves");
   void block.offsetWidth; // Trigger reflow to restart the animation
   block.classList.add("block-moves");
 });
+
+// GAME END

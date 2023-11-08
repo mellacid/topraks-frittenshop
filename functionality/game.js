@@ -19,13 +19,6 @@ export const checkHit = (window, dog, block, loseText, winText, jumpCount) => {
       block.style.display = "none;";
       dog.style.display = "none";
       loseText.style.display = "block";
-    } else if (jumpCount === 10) {
-      winText.style.display = "block";
-      block.style.animation = "none";
-      block.style.display = "none;";
-      dog.style.display = "none";
     }
   }, 10);
 };
-
-// GAME END
