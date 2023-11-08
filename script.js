@@ -44,6 +44,7 @@ block.addEventListener("animationend", () => {
 });
 
 // GAME END
+
 //  FRITTEN
 const frittenElement = document.getElementById("fritten");
 
@@ -68,5 +69,21 @@ for (let menu of fritten) {
 
   frittenElement.appendChild(menuEach);
 }
+
+const frittenTag = document.getElementById("fritten");
+
+document.addEventListener("click", (e) => {
+  if (
+    e.target.classList.contains("fritten") &&
+    window.getComputedStyle(frittenElement).getPropertyValue("display") ===
+      "none"
+  ) {
+    game.style.display = "none";
+    frittenTag.style.display = "flex";
+  } else {
+    game.style.display = "block";
+    frittenTag.style.display = "none";
+  }
+});
 
 // FRITTEN END

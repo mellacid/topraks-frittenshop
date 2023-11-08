@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+.hidden {
+ display: none;
+}
+
+.display {
+  display: block;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: #d89c6a;
@@ -77,9 +85,6 @@ footer {
   text-align: center;
 }
  /* GAME */
- .hidden {
-  display: none;
-}
 
 #game {
   margin: 100px auto;
@@ -203,7 +208,7 @@ footer {
   width: 500px;
   height: max-content;
 
-  display: flex;
+  display: none;
   flex-wrap: wrap;
 }
 
