@@ -1,5 +1,7 @@
 import { fritten } from "./data/fritten.js";
 import { checkHit, jump } from "./functionality/game.js";
+import { snacks } from "./data/snacks.js";
+import { drinks } from "./data/drinks.js";
 
 // GAME
 
@@ -87,3 +89,89 @@ document.addEventListener("click", (e) => {
 });
 
 // FRITTEN END
+
+//  SNACKS
+const snacksElement = document.getElementById("snacks");
+
+for (let menu of snacks) {
+  const menuEach = document.createElement("div");
+  menuEach.classList.add("menu-item");
+
+  const image = document.createElement("img");
+  image.classList.add("menu-image");
+  image.src = menu.image;
+  menuEach.appendChild(image);
+
+  const name = document.createElement("h2");
+  name.classList.add("menu-name");
+  name.textContent = menu.name;
+  menuEach.appendChild(name);
+
+  const price = document.createElement("p");
+  price.classList.add("menu-price");
+  price.textContent = menu.price + "0 €";
+  menuEach.appendChild(price);
+
+  snacksElement.appendChild(menuEach);
+}
+
+const snacksTag = document.getElementById("snacks");
+
+document.addEventListener("click", (e) => {
+  if (
+    e.target.classList.contains("snacks") &&
+    window.getComputedStyle(snacksElement).getPropertyValue("display") ===
+      "none"
+  ) {
+    game.style.display = "none";
+    snacksTag.style.display = "flex";
+  } else {
+    snacksTag.style.display = "none";
+  }
+});
+
+// SNACKS END
+
+// DRINKS
+
+const drinksElement = document.getElementById("drinks");
+
+for (let menu of drinks) {
+  const menuEach = document.createElement("div");
+  menuEach.classList.add("menu-item");
+
+  const image = document.createElement("img");
+  image.classList.add("menu-image");
+  image.src = menu.image;
+  menuEach.appendChild(image);
+
+  const name = document.createElement("h2");
+  name.classList.add("menu-name");
+  name.textContent = menu.name;
+  menuEach.appendChild(name);
+
+  const price = document.createElement("p");
+  price.classList.add("menu-price");
+  price.textContent = menu.price + "0 €";
+  menuEach.appendChild(price);
+
+  drinksElement.appendChild(menuEach);
+}
+
+const drinksTag = document.getElementById("drinks");
+
+document.addEventListener("click", (e) => {
+  if (
+    e.target.classList.contains("drinks") &&
+    window.getComputedStyle(drinksElement).getPropertyValue("display") ===
+      "none"
+  ) {
+    game.style.display = "none";
+    drinksTag.style.display = "flex";
+    console.log("drinks");
+  } else {
+    drinksTag.style.display = "none";
+  }
+});
+
+// DRINKS END

@@ -5,7 +5,7 @@
 }
 
 .hidden {
- display: none;
+  display: none;
 }
 
 .display {
@@ -84,7 +84,7 @@ footer {
   font-weight: bold;
   text-align: center;
 }
- /* GAME */
+/* GAME */
 
 #game {
   margin: 100px auto;
@@ -132,28 +132,52 @@ footer {
 }
 
 @keyframes block {
-  0% {left: 800px;}
-  100% {left: -50px;}
+  0% {
+    left: 800px;
+  }
+  100% {
+    left: -50px;
+  }
 }
 
 @keyframes walk {
-  0% {background-image: url(img/game/dog_stand.png);}
-  16%{background-image: url(img/game/dog-step.png);}
-  32%{background-image: url(img/game/dog_stand.png);}
-  48%{background-image: url(img/game/dog-step.png);}
-  64% {background-image: url(img/game/dog_stand.png);}
-  80%{background-image: url(img/game/dog-step.png);}
+  0% {
+    background-image: url(img/game/dog_stand.png);
+  }
+  16% {
+    background-image: url(img/game/dog-step.png);
+  }
+  32% {
+    background-image: url(img/game/dog_stand.png);
+  }
+  48% {
+    background-image: url(img/game/dog-step.png);
+  }
+  64% {
+    background-image: url(img/game/dog_stand.png);
+  }
+  80% {
+    background-image: url(img/game/dog-step.png);
+  }
 }
 
 @keyframes jump {
-  0% {top: 200px;
-      background-image: url(img/game/dog-step.png);}
-  30% {top: 100px;
-      background-image: url(img/game/dog-step.png);}
-  70%{top: 100px;
-      background-image: url(img/game/dog-step.png);}
-  100%{top:200px;
-      background-image: url(img/game/dog-step.png);}
+  0% {
+    top: 200px;
+    background-image: url(img/game/dog-step.png);
+  }
+  30% {
+    top: 100px;
+    background-image: url(img/game/dog-step.png);
+  }
+  70% {
+    top: 100px;
+    background-image: url(img/game/dog-step.png);
+  }
+  100% {
+    top: 200px;
+    background-image: url(img/game/dog-step.png);
+  }
 }
 
 #start-text {
@@ -198,10 +222,9 @@ footer {
   width: 100px;
 }
 
+/* GAME END */
 
- /* GAME END */
-
- /* FRITTEN */
+/* FRITTEN */
 
 #fritten {
   border: 1px solid black;
@@ -220,5 +243,30 @@ footer {
   width: 200px;
 }
 
+/* FRITTEN END */
 
- /* FRITTEN END */
+/* SNACKS */
+
+#snacks {
+  border: 1px solid black;
+  width: 500px;
+  height: max-content;
+
+  display: none;
+  flex-wrap: wrap;
+}
+
+/* SNACKS END */
+
+/* DRINKS */
+
+#drinks {
+  border: 1px solid black;
+  width: 500px;
+  height: max-content;
+
+  display: none;
+  flex-wrap: wrap;
+}
+
+/* DRINKS END */
