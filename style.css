@@ -31,6 +31,11 @@ i {
   font-size: 3rem;
 }
 
+main {
+  display: flex;
+  align-items: center;
+}
+
 .sidebar {
   background-color: #bc7031;
   width: 200px;
@@ -38,6 +43,7 @@ i {
   height: 64vh;
   margin-top: 20px;
   margin-left: 20px;
+  margin-right: 20px;
   border-radius: 20px;
 
   display: flex;
@@ -70,3 +76,122 @@ footer {
   font-weight: bold;
   text-align: center;
 }
+ /* GAME */
+ .hidden {
+  display: none;
+}
+
+#game {
+  margin: 100px auto;
+  width: 800px;
+  height: 300px;
+  border: 2px solid black;
+  overflow: hidden;
+  position: relative;
+}
+
+#dog {
+  width: 100px;
+  height: 100px;
+  background-image: url(img/game/dog_stand.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  top: 200px;
+}
+
+.walking {
+  animation: walk 1s infinite;
+}
+
+.jumping {
+  background-image: url(img/game/dog-step.png);
+  animation: jump 1s 1;
+}
+
+#block {
+  width: 50px;
+  height: 80px;
+  background-image: url(img/game/OIG2-removebg-preview.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  top: 120px;
+  left: 800px;
+}
+
+.block-moves {
+  animation: block 3s 1 linear;
+}
+
+@keyframes block {
+  0% {left: 800px;}
+  100% {left: -50px;}
+}
+
+@keyframes walk {
+  0% {background-image: url(img/game/dog_stand.png);}
+  16%{background-image: url(img/game/dog-step.png);}
+  32%{background-image: url(img/game/dog_stand.png);}
+  48%{background-image: url(img/game/dog-step.png);}
+  64% {background-image: url(img/game/dog_stand.png);}
+  80%{background-image: url(img/game/dog-step.png);}
+}
+
+@keyframes jump {
+  0% {top: 200px;
+      background-image: url(img/game/dog-step.png);}
+  30% {top: 100px;
+      background-image: url(img/game/dog-step.png);}
+  70%{top: 100px;
+      background-image: url(img/game/dog-step.png);}
+  100%{top:200px;
+      background-image: url(img/game/dog-step.png);}
+}
+
+#start-text {
+  width: 100%;
+  text-align: center;
+  line-height: 4rem;
+  position: absolute;
+  top: 50px;
+  left: 40px;
+}
+
+#lose-text {
+  width: 100%;
+  text-align: center;
+  line-height: 4rem;
+  position: absolute;
+  top: 50px;
+  left: 40px;
+}
+
+#lost-dog {
+  transform: scaleY(-1);
+  width: 100px;
+}
+
+#jump-count {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+#win-text {
+  width: 100%;
+  text-align: center;
+  line-height: 4rem;
+  position: absolute;
+  top: 50px;
+  left: 40px;
+}
+
+#win-fries {
+  width: 100px;
+}
+
+
+ /* GAME END */
