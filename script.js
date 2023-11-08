@@ -44,3 +44,29 @@ block.addEventListener("animationend", () => {
 });
 
 // GAME END
+//  FRITTEN
+const frittenElement = document.getElementById("fritten");
+
+for (let menu of fritten) {
+  const menuEach = document.createElement("div");
+  menuEach.classList.add("menu-item");
+
+  const image = document.createElement("img");
+  image.classList.add("menu-image");
+  image.src = menu.image;
+  menuEach.appendChild(image);
+
+  const name = document.createElement("h2");
+  name.classList.add("menu-name");
+  name.textContent = menu.name;
+  menuEach.appendChild(name);
+
+  const price = document.createElement("p");
+  price.classList.add("menu-price");
+  price.textContent = menu.price + "0 €";
+  menuEach.appendChild(price);
+
+  frittenElement.appendChild(menuEach);
+}
+
+// FRITTEN END
