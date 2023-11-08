@@ -237,6 +237,7 @@ footer {
 
 .menu-item {
   width: 200px;
+  border: 1px solid black;
 }
 
 .menu-image {
@@ -270,3 +271,16 @@ footer {
 }
 
 /* DRINKS END */
+
+/* CART */
+
+#cart {
+  background-color: rgba(255, 255, 0, 0.8);
+  width: 500px;
+  height: 600px;
+  border: 1px solid black;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  display: none;
+}

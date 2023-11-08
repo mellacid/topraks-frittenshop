@@ -175,3 +175,30 @@ document.addEventListener("click", (e) => {
 });
 
 // DRINKS END
+
+// CART
+
+/*document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("menu-item")) {
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+
+    const image = document.createElement("img");
+    image.classList.add("cart-image");
+    image.src = e.target.querySelector(".menu-image").src;
+    cartItem.appendChild(image);
+
+    const name = document.createElement("h2");
+    name.classList.add("cart-name");
+    name.textContent = e.target.querySelector(".menu-name").textContent;
+    cartItem.appendChild(name);
+
+    const price = document.createElement("p");
+    price.classList.add("cart-price");
+    price.textContent = e.target.querySelector(".menu-price").textContent;
+    cartItem.appendChild(price);
+
+    const cart = document.getElementById("cart");
+    cart.appendChild(cartItem);
+  }
+});*/
