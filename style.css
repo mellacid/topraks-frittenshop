@@ -40,6 +40,10 @@ i {
   cursor: pointer;
 }
 
+i:hover {
+  color: yellow;
+}
+
 main {
   display: flex;
   align-items: center;
