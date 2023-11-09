@@ -83,7 +83,7 @@ document.addEventListener("click", (e) => {
     game.style.display = "none";
     frittenTag.style.display = "flex";
   } else {
-    game.style.display = "block";
+    //game.style.display = "block";
     frittenTag.style.display = "none";
   }
 });
@@ -202,3 +202,39 @@ document.addEventListener("click", (e) => {
     cart.appendChild(cartItem);
   }
 });*/
+
+function addToCart(item) {
+  // Artikel dem Warenkorb hinzufügen
+  const cartItems = document.getElementById("cart-items");
+  const listItem = document.createElement("li");
+  listItem.textContent = item.name + " : " + item.price + " €";
+  cartItems.appendChild(listItem);
+
+  // Gesamtpreis aktualisieren
+  const cartTotal = document.getElementById("cart-total");
+  cartTotal.textContent = "Gesamtpreis: " + calculateTotalPrice() + " €";
+}
+
+function calculateTotalPrice() {
+  // Hier können Sie den Gesamtpreis aller Artikel im Warenkorb berechnen
+  let total = 0;
+  // Durch die Liste der ausgewählten Artikel im Warenkorb iterieren und den Preis addieren
+  // Beispiel: for (let item of selectedItems) { total += item.price; }
+  return total;
+}
+
+// Annahme: Sie haben eine Schaltfläche zum Hinzufügen von Artikeln mit der Klasse "add-to-cart"
+const addToCartButtons = document.querySelectorAll(".menu-item");
+
+addToCartButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    // Hier sollten Sie den ausgewählten Artikel identifizieren, z.B., indem Sie auf Datenattribute zugreifen.
+    const item = {
+      name: "Beispielartikel",
+      price: 10.0,
+    };
+    addToCart(item);
+  });
+});
+
+// CART END
