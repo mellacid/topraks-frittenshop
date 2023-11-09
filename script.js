@@ -72,21 +72,7 @@ for (let menu of fritten) {
   frittenElement.appendChild(menuEach);
 }
 
-const frittenTag = document.getElementById("fritten");
-
-document.addEventListener("click", (e) => {
-  if (
-    e.target.classList.contains("fritten") &&
-    window.getComputedStyle(frittenElement).getPropertyValue("display") ===
-      "none"
-  ) {
-    game.style.display = "none";
-    frittenTag.style.display = "flex";
-  } else {
-    //game.style.display = "block";
-    frittenTag.style.display = "none";
-  }
-});
+const frittenTag = document.querySelector(".fritten");
 
 // FRITTEN END
 
@@ -115,20 +101,7 @@ for (let menu of snacks) {
   snacksElement.appendChild(menuEach);
 }
 
-const snacksTag = document.getElementById("snacks");
-
-document.addEventListener("click", (e) => {
-  if (
-    e.target.classList.contains("snacks") &&
-    window.getComputedStyle(snacksElement).getPropertyValue("display") ===
-      "none"
-  ) {
-    game.style.display = "none";
-    snacksTag.style.display = "flex";
-  } else {
-    snacksTag.style.display = "none";
-  }
-});
+const snacksTag = document.querySelector(".snacks");
 
 // SNACKS END
 
@@ -158,21 +131,7 @@ for (let menu of drinks) {
   drinksElement.appendChild(menuEach);
 }
 
-const drinksTag = document.getElementById("drinks");
-
-document.addEventListener("click", (e) => {
-  if (
-    e.target.classList.contains("drinks") &&
-    window.getComputedStyle(drinksElement).getPropertyValue("display") ===
-      "none"
-  ) {
-    game.style.display = "none";
-    drinksTag.style.display = "flex";
-    console.log("drinks");
-  } else {
-    drinksTag.style.display = "none";
-  }
-});
+const drinksTag = document.querySelector(".drinks");
 
 // DRINKS END
 
@@ -238,3 +197,46 @@ addToCartButtons.forEach((button) => {
 });
 
 // CART END
+
+// JANS EVENT LISTENER
+
+const homeTag = document.querySelector(".home");
+const homeElement = document.getElementById("game");
+
+document.addEventListener("click", (e) => {
+  const targetClassList = e.target.classList;
+
+  if (targetClassList.contains("home")) {
+    openMenuCategory(homeElement, homeTag);
+  } else if (targetClassList.contains("fritten")) {
+    openMenuCategory(frittenElement, frittenTag);
+  } else if (targetClassList.contains("snacks")) {
+    openMenuCategory(snacksElement, snacksTag);
+  } else if (targetClassList.contains("drinks")) {
+    openMenuCategory(drinksElement, drinksTag);
+  }
+});
+
+function openMenuCategory(menuElement, menuTag) {
+  const categories = [
+    homeElement,
+    frittenElement,
+    snacksElement,
+    drinksElement,
+  ];
+  const tags = [homeTag, frittenTag, snacksTag, drinksTag];
+
+  for (const category of categories) {
+    if (category === homeElement) {
+      category.style.display = category === menuElement ? "block" : "none";
+    } else {
+      category.style.display = category === menuElement ? "flex" : "none";
+    }
+  }
+
+  for (const tag of tags) {
+    tag.style.color = tag === menuTag ? "yellow" : "white";
+  }
+}
+
+// JANS EVENT LISTENER END
