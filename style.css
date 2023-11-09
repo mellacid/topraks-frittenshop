@@ -37,6 +37,11 @@ header {
 i {
   color: white;
   font-size: 3rem;
+  cursor: pointer;
+}
+
+i:hover {
+  color: yellow;
 }
 
 main {
@@ -284,3 +289,5 @@ footer {
   z-index: 1;
   //display: none;
 }
+
+// CART END
