@@ -71,6 +71,8 @@ main {
   color: white;
 
   justify-content: space-around;
+
+  user-select: none;
 }
 
 footer {
@@ -282,5 +284,9 @@ footer {
   position: absolute;
   right: 0;
   z-index: 1;
-  //display: none;
+  display: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
