@@ -165,6 +165,64 @@ document.addEventListener("click", (e) => {
   }
 });
 
+function addToCart(selectedItem) {
+  shoppingCart.push(selectedItem);
+  renderCart();
+}
+
+function renderCart() {
+  cartItemsList.innerHTML = "";
+  let total = 0;
+  for (let i = 0; i < shoppingCart.length; i++) {
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+
+    const name = document.createElement("p");
+    name.classList.add("cart-item-name");
+    name.textContent = shoppingCart[i].name;
+    cartItem.appendChild(name);
+
+    const price = document.createElement("p");
+    price.classList.add("cart-item-price");
+    price.textContent = shoppingCart[i].price + "0 €";
+    cartItem.appendChild(price);
+
+    cartItemsList.appendChild(cartItem);
+
+    total += shoppingCart[i].price;
+  }
+
+  cartTotalElement.textContent = total + "0 €";
+}
+
+function clearCart() {
+  shoppingCart = [];
+  renderCart();
+}
+
+document.getElementById("clear-cart").addEventListener("click", () => {
+  clearCart();
+});
+
+const orderElement = document.getElementById("order");
+
+document.getElementById("order-button").addEventListener("click", () => {
+  cart.classList.add("cart-hidden");
+  orderElement.textContent = cartItemsList.textContent;
+
+  game.style.display = "none";
+  frittenElement.style.display = "none";
+  snacksElement.style.display = "none";
+  drinksElement.style.display = "none";
+
+  orderElement.style.display = "block";
+});
+
+// document.getElementById("checkout").addEventListener("click", () => {
+//   clearCart();
+//   cart.classList.add("cart-hidden");
+// });
+
 // CART END
 
 // JANS EVENT LISTENER
