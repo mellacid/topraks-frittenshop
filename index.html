@@ -32,14 +32,12 @@
           <ul id="cart-items"></ul>
           <p id="cart-total">Gesamtpreis: 0.00 €</p>
           <button id="clear-cart">Clear Cart</button>
-          <button id="order-button">Bestellen</button>
-          </div>
+          <button id="order-button" class="order-btn">Bestellen</button>
+        </div>
       </div>
     </header>
 
     <main>
-      
-
       <nav class="sidebar">
         <ul>
           <li class="home cursor-pointer">Home</li>
@@ -84,7 +82,11 @@
         <div id="drinks" class="category"></div>
         <!-- GETRÄNKE END -->
         <!-- RECHNUNG -->
-        <div id="order"></div>
+        <div id="order" class="category">
+          <h1>Deine Bestellung</h1>
+          <h2 id="nickname"></h2>
+          <img src="" id="nickname-image" alt="" />
+        </div>
         <!-- RECHNUNG END -->
       </section>
     </main>

@@ -2,6 +2,7 @@ import { fritten } from "./data/fritten.js";
 import { checkHit, jump } from "./functionality/game.js";
 import { snacks } from "./data/snacks.js";
 import { drinks } from "./data/drinks.js";
+import { generateNickname } from "./data/nicknames.js";
 
 // GAME
 
@@ -213,17 +214,17 @@ document.getElementById("clear-cart").addEventListener("click", () => {
 
 const orderElement = document.getElementById("order");
 
-document.getElementById("order-button").addEventListener("click", () => {
-  cart.classList.add("cart-hidden");
-  orderElement.textContent = cartItemsList.textContent;
+// document.getElementById("order-button").addEventListener("click", () => {
+//   cart.classList.add("cart-hidden");
+//   orderElement.textContent = cartItemsList.textContent;
 
-  game.style.display = "none";
-  frittenElement.style.display = "none";
-  snacksElement.style.display = "none";
-  drinksElement.style.display = "none";
+//   game.style.display = "none";
+//   frittenElement.style.display = "none";
+//   snacksElement.style.display = "none";
+//   drinksElement.style.display = "none";
 
-  orderElement.style.display = "block";
-});
+//   orderElement.style.display = "block";
+// });
 
 // document.getElementById("checkout").addEventListener("click", () => {
 //   clearCart();
@@ -248,6 +249,8 @@ document.addEventListener("click", (e) => {
     openMenuCategory(snacksElement, snacksTag);
   } else if (targetClassList.contains("drinks")) {
     openMenuCategory(drinksElement, drinksTag);
+  } else if (targetClassList.contains("order-btn")) {
+    openMenuCategory(orderElement, cartIcon);
   }
 });
 
@@ -257,8 +260,9 @@ function openMenuCategory(menuElement, menuTag) {
     frittenElement,
     snacksElement,
     drinksElement,
+    orderElement,
   ];
-  const tags = [homeTag, frittenTag, snacksTag, drinksTag];
+  const tags = [homeTag, frittenTag, snacksTag, drinksTag, cartIcon];
 
   for (const category of categories) {
     if (category === homeElement) {
@@ -274,3 +278,13 @@ function openMenuCategory(menuElement, menuTag) {
 }
 
 // JANS EVENT LISTENER END
+
+// NICKNAME
+const nickname = document.querySelector("#nickname");
+const nicknameImage = document.querySelector("#nickname-image");
+const button = document.querySelector(".order-btn");
+
+button.addEventListener("click", () => {
+  generateNickname(nickname, nicknameImage);
+});
+// NICKNAME END
