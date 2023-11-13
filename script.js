@@ -76,6 +76,12 @@ const frittenTag = document.querySelector(".fritten");
 
 // FRITTEN END
 
+/*document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("menu-item")) {
+    console.log(event.target);
+  }
+});*/
+
 //  SNACKS
 const snacksElement = document.getElementById("snacks");
 

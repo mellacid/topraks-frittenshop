@@ -15,7 +15,7 @@
 body {
   font-family: "Poppins", sans-serif;
   background-color: #d89c6a;
-  overflow: hidden;
+  //overflow: hidden;
 }
 
 header {
@@ -31,7 +31,14 @@ header {
 
 .logo {
   color: white;
-  font-size: 1.7rem;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+  .logo h2 {
+    display: none;
+    font-size: 1.2rem;
+  }
 }
 
 i {
@@ -46,12 +53,11 @@ i:hover {
 
 main {
   display: flex;
-  align-items: center;
 }
 
 .sidebar {
   background-color: #bc7031;
-  width: 200px;
+  width: 30%;
   padding: 5px;
   height: 64vh;
   margin-top: 20px;
@@ -233,51 +239,42 @@ footer {
 
 /* FRITTEN */
 
-#fritten {
-  border: 1px solid black;
-  width: 500px;
+.category {
+  width: 50%;
   height: max-content;
-
+  margin-left: 23%;
   display: none;
   flex-wrap: wrap;
 }
 
 .menu-item {
-  width: 200px;
-  border: 1px solid black;
+  width: 40%;
+  height: 100%;
+  min-width: 200px;
+  margin: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.menu-item:hover {
+  background-color: rgba(255, 255, 0, 0.434);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.menu-item.geklickt {
+  background-color: white;
 }
 
 .menu-image {
-  width: 200px;
+  width: 100%;
+  height: auto;
 }
 
 /* FRITTEN END */
-
-/* SNACKS */
-
-#snacks {
-  border: 1px solid black;
-  width: 500px;
-  height: max-content;
-
-  display: none;
-  flex-wrap: wrap;
-}
-
-/* SNACKS END */
-
-/* DRINKS */
-
-#drinks {
-  border: 1px solid black;
-  width: 500px;
-  height: max-content;
-
-  display: none;
-  flex-wrap: wrap;
-}
-
-/* DRINKS END */
 
 /* CART */
 
@@ -297,4 +294,3 @@ footer {
 .cursor-pointer {
   cursor: pointer;
 }
-
