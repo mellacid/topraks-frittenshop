@@ -21,7 +21,7 @@ export const nicknames = [
 export function generateNickname(nickname, nicknameImage) {
   let randomIndex = Math.floor(Math.random() * nicknames.length);
   let randomNickname = nicknames[randomIndex];
-  nickname.textContent = randomNickname.nickname;
+  nickname.textContent = "Dein Bestellcode: " + randomNickname.nickname;
   nicknameImage.src = randomNickname.image;
   nicknames.splice(randomIndex, 1);
   console.log(nicknames);

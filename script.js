@@ -15,6 +15,21 @@ const jumpCountElement = document.getElementById("jump-count");
 const winText = document.getElementById("win-text");
 let jumpCount = 0;
 
+let discountApplied = false; // Flag, um zu überprüfen, ob der Rabatt bereits angewendet wurde
+let rabattcode = ""; // Initialer Rabattcode
+
+function applyDiscountCode() {
+  if (jumpCount >= 5 && !discountApplied) {
+    // Wenn der Spieler mindestens 10 Mal gesprungen ist und der Rabatt noch nicht angewendet wurde
+    rabattcode = prompt(
+      "Herzlichen Glückwunsch! Du hast gewonnen. Gib deinen Rabattcode ein:"
+    );
+    alert("Rabattcode akzeptiert! 10% Rabatt wird angewendet.");
+    discountApplied = true; // Setze das Flag, um zu verhindern, dass der Rabatt mehrmals angewendet wird
+    renderCart(); // Rufe die renderCart-Funktion auf, um den Rabatt anzuzeigen
+  }
+}
+
 document.addEventListener("keydown", (event) => {
   if (event.key === " ") {
     if (!dog.classList.contains("walking")) {
@@ -28,12 +43,13 @@ document.addEventListener("keydown", (event) => {
 document.addEventListener("keyup", (event) => {
   dog.classList.remove("jumping");
   dog.classList.add("walking");
+  applyDiscountCode();
 });
 
 checkHit(window, dog, block, loseText, winText, jumpCount);
 
 block.addEventListener("animationend", () => {
-  if (jumpCount === 9) {
+  if (jumpCount === 4) {
     winText.style.display = "block";
     block.style.animation = "none";
     block.style.display = "none;";
@@ -200,8 +216,13 @@ function renderCart() {
     total += shoppingCart[i].price;
   }
 
+  // Berücksichtige den Rabatt
+  if (rabattcode === "TOPRAKWINS10") {
+    total *= 0.9; // 10% Rabatt
+  }
+
   total = Math.round(total * 100) / 100;
-  cartTotalElement.textContent = "Gesamtpreis:" + total + "0 €";
+  cartTotalElement.textContent = "Gesamtpreis:" + total + " €";
 }
 
 function clearCart() {
@@ -215,23 +236,6 @@ document.getElementById("clear-cart").addEventListener("click", () => {
 });
 
 const orderElement = document.getElementById("order");
-
-// document.getElementById("order-button").addEventListener("click", () => {
-//   cart.classList.add("cart-hidden");
-//   orderElement.textContent = cartItemsList.textContent;
-
-//   game.style.display = "none";
-//   frittenElement.style.display = "none";
-//   snacksElement.style.display = "none";
-//   drinksElement.style.display = "none";
-
-//   orderElement.style.display = "block";
-// });
-
-// document.getElementById("checkout").addEventListener("click", () => {
-//   clearCart();
-//   cart.classList.add("cart-hidden");
-// });
 
 // CART END
 
