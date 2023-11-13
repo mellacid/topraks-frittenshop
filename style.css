@@ -338,3 +338,7 @@ footer {
 .cursor-pointer {
   cursor: pointer;
 }
+
+#order {
+  flex-direction: column;
+}
