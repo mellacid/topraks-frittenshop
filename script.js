@@ -200,7 +200,8 @@ function renderCart() {
     total += shoppingCart[i].price;
   }
 
-  cartTotalElement.textContent = total + "0 €";
+  total = Math.round(total * 100) / 100;
+  cartTotalElement.textContent = "Gesamtpreis:" + total + "0 €";
 }
 
 function clearCart() {
@@ -295,14 +296,9 @@ const finalOrder = document.querySelector("#final-order");
 
 document.querySelector("#order-button").addEventListener("click", () => {
   cart.classList.add("cart-hidden");
-  finalOrder.textContent = cartItemsList.textContent;
-
-  game.style.display = "none";
-  frittenElement.style.display = "none";
-  snacksElement.style.display = "none";
-  drinksElement.style.display = "none";
-
-  finalOrder.style.display = "block";
+  finalOrder.appendChild(cartItemsList);
+  finalOrder.appendChild(cartTotalElement);
+  cartIcon.style.pointerEvents = "none";
 });
 
 // FINAL ORDER END
