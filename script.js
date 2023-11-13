@@ -174,6 +174,7 @@ document.addEventListener("click", (e) => {
 function addToCart(selectedItem) {
   shoppingCart.push(selectedItem);
   renderCart();
+  cart.classList.remove("cart-hidden"); // Ändere die Sichtbarkeit des Warenkorbs
 }
 
 function renderCart() {
