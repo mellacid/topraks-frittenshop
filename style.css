@@ -37,7 +37,7 @@ header {
 
 .logo h2 {
   display: block;
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 /* @media screen and (min-width: 659px) {
@@ -317,12 +317,16 @@ footer {
 /* CART */
 
 #cart {
+  border-radius: 5px;
+  padding: 10px;
   background-color: #bc7031cc;
-  width: 500px;
-  height: 600px;
+  width: 200px;
+  height: 400px;
   position: absolute;
-  right: 0;
-  z-index: 1;
+  top: 200px;
+  right: 5px;
+  z-index: 100;
+  text-align: center;
 }
 
 .cart-hidden {

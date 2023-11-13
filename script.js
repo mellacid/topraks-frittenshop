@@ -204,6 +204,7 @@ function renderCart() {
 function clearCart() {
   shoppingCart = [];
   renderCart();
+  cartTotalElement.textContent = `Warenkorb wurde geleert!`;
 }
 
 document.getElementById("clear-cart").addEventListener("click", () => {
