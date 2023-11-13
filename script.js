@@ -289,3 +289,20 @@ button.addEventListener("click", () => {
   generateNickname(nickname, nicknameImage);
 });
 // NICKNAME END
+
+// FINAL ORDER
+const finalOrder = document.querySelector("#final-order");
+
+document.querySelector("#order-button").addEventListener("click", () => {
+  cart.classList.add("cart-hidden");
+  finalOrder.textContent = cartItemsList.textContent;
+
+  game.style.display = "none";
+  frittenElement.style.display = "none";
+  snacksElement.style.display = "none";
+  drinksElement.style.display = "none";
+
+  finalOrder.style.display = "block";
+});
+
+// FINAL ORDER END
