@@ -141,66 +141,93 @@ const drinksTag = document.querySelector(".drinks");
 
 // DRINKS END
 
-// CART
+// CART Start
 
-/*document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("menu-item")) {
+const cartItemsList = document.getElementById("cart-items");
+const cartTotalElement = document.getElementById("cart-total");
+let shoppingCart = [];
+
+const cartIcon = document.querySelector(".fa-cart-shopping");
+const cart = document.getElementById("cart");
+
+cartIcon.addEventListener("click", () => {
+  if (cart.classList.contains("cart-hidden")) {
+    cart.classList.remove("cart-hidden");
+  } else {
+    cart.classList.add("cart-hidden");
+  }
+});
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("menu-image")) {
+    const selectedItem = {
+      name: e.target.nextElementSibling.textContent,
+      price: parseFloat(
+        e.target.nextElementSibling.nextElementSibling.textContent
+      ),
+    };
+
+    addToCart(selectedItem);
+  }
+});
+
+function addToCart(selectedItem) {
+  shoppingCart.push(selectedItem);
+  renderCart();
+}
+
+function renderCart() {
+  cartItemsList.innerHTML = "";
+  let total = 0;
+  for (let i = 0; i < shoppingCart.length; i++) {
     const cartItem = document.createElement("div");
     cartItem.classList.add("cart-item");
 
-    const image = document.createElement("img");
-    image.classList.add("cart-image");
-    image.src = e.target.querySelector(".menu-image").src;
-    cartItem.appendChild(image);
-
-    const name = document.createElement("h2");
-    name.classList.add("cart-name");
-    name.textContent = e.target.querySelector(".menu-name").textContent;
+    const name = document.createElement("p");
+    name.classList.add("cart-item-name");
+    name.textContent = shoppingCart[i].name;
     cartItem.appendChild(name);
 
     const price = document.createElement("p");
-    price.classList.add("cart-price");
-    price.textContent = e.target.querySelector(".menu-price").textContent;
+    price.classList.add("cart-item-price");
+    price.textContent = shoppingCart[i].price + "0 €";
     cartItem.appendChild(price);
 
-    const cart = document.getElementById("cart");
-    cart.appendChild(cartItem);
+    cartItemsList.appendChild(cartItem);
+
+    total += shoppingCart[i].price;
   }
-});*/
 
-function addToCart(item) {
-  // Artikel dem Warenkorb hinzufügen
-  const cartItems = document.getElementById("cart-items");
-  const listItem = document.createElement("li");
-  listItem.textContent = item.name + " : " + item.price + " €";
-  cartItems.appendChild(listItem);
-
-  // Gesamtpreis aktualisieren
-  const cartTotal = document.getElementById("cart-total");
-  cartTotal.textContent = "Gesamtpreis: " + calculateTotalPrice() + " €";
+  cartTotalElement.textContent = total + "0 €";
 }
 
-function calculateTotalPrice() {
-  // Hier können Sie den Gesamtpreis aller Artikel im Warenkorb berechnen
-  let total = 0;
-  // Durch die Liste der ausgewählten Artikel im Warenkorb iterieren und den Preis addieren
-  // Beispiel: for (let item of selectedItems) { total += item.price; }
-  return total;
+function clearCart() {
+  shoppingCart = [];
+  renderCart();
 }
 
-// Annahme: Sie haben eine Schaltfläche zum Hinzufügen von Artikeln mit der Klasse "add-to-cart"
-const addToCartButtons = document.querySelectorAll(".menu-item");
-
-addToCartButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    // Hier sollten Sie den ausgewählten Artikel identifizieren, z.B., indem Sie auf Datenattribute zugreifen.
-    const item = {
-      name: "Beispielartikel",
-      price: 10.0,
-    };
-    addToCart(item);
-  });
+document.getElementById("clear-cart").addEventListener("click", () => {
+  clearCart();
 });
+
+const orderElement = document.getElementById("order");
+
+document.getElementById("order-button").addEventListener("click", () => {
+  cart.classList.add("cart-hidden");
+  orderElement.textContent = cartItemsList.textContent;
+
+  game.style.display = "none";
+  frittenElement.style.display = "none";
+  snacksElement.style.display = "none";
+  drinksElement.style.display = "none";
+
+  orderElement.style.display = "block";
+});
+
+// document.getElementById("checkout").addEventListener("click", () => {
+//   clearCart();
+//   cart.classList.add("cart-hidden");
+// });
 
 // CART END
 
