@@ -1,8 +1,11 @@
 import { fritten } from "./data/fritten.js";
-import { checkHit, jump } from "./functionality/game.js";
+import { checkHit, jump } from "./scripts/game.js";
 import { snacks } from "./data/snacks.js";
 import { drinks } from "./data/drinks.js";
 import { generateNickname } from "./data/nicknames.js";
+
+const frittenElement = document.getElementById("fritten");
+const frittenTag = document.querySelector(".fritten");
 
 // GAME
 
@@ -14,21 +17,6 @@ const loseText = document.getElementById("lose-text");
 const jumpCountElement = document.getElementById("jump-count");
 const winText = document.getElementById("win-text");
 let jumpCount = 0;
-
-let discountApplied = false; // Flag, um zu überprüfen, ob der Rabatt bereits angewendet wurde
-let rabattcode = ""; // Initialer Rabattcode
-
-function applyDiscountCode() {
-  if (jumpCount >= 5 && !discountApplied) {
-    // Wenn der Spieler mindestens 10 Mal gesprungen ist und der Rabatt noch nicht angewendet wurde
-    rabattcode = prompt(
-      "Herzlichen Glückwunsch! Du hast gewonnen. Gib deinen Rabattcode ein:"
-    );
-    alert("Rabattcode akzeptiert! 10% Rabatt wird angewendet.");
-    discountApplied = true; // Setze das Flag, um zu verhindern, dass der Rabatt mehrmals angewendet wird
-    renderCart(); // Rufe die renderCart-Funktion auf, um den Rabatt anzuzeigen
-  }
-}
 
 document.addEventListener("keydown", (event) => {
   if (event.key === " ") {
@@ -62,10 +50,22 @@ block.addEventListener("animationend", () => {
   block.classList.add("block-moves");
 });
 
+let discountApplied = false; // Flag, um zu überprüfen, ob der Rabatt bereits angewendet wurde
+let rabattcode = "";
+
+function applyDiscountCode() {
+  if (jumpCount >= 5 && !discountApplied) {
+    rabattcode = prompt(
+      "Herzlichen Glückwunsch! Du hast gewonnen. Gib deinen Rabattcode ein:"
+    );
+    alert("Rabattcode akzeptiert! 10% Rabatt wird angewendet.");
+    discountApplied = true; // Setze das Flag, um zu verhindern, dass der Rabatt mehrmals angewendet wird
+    renderCart();
+  }
+}
 // GAME END
 
 //  FRITTEN
-const frittenElement = document.getElementById("fritten");
 
 for (let menu of fritten) {
   const menuEach = document.createElement("div");
@@ -89,15 +89,7 @@ for (let menu of fritten) {
   frittenElement.appendChild(menuEach);
 }
 
-const frittenTag = document.querySelector(".fritten");
-
 // FRITTEN END
-
-/*document.addEventListener("click", (event) => {
-  if (event.target.classList.contains("menu-item")) {
-    console.log(event.target);
-  }
-});*/
 
 //  SNACKS
 const snacksElement = document.getElementById("snacks");

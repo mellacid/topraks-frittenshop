@@ -3,12 +3,9 @@ export function jump(dog) {
   dog.classList.add("jumping");
 }
 
-export const checkHit = (window, dog, block, loseText, winText, jumpCount) => {
+export const checkHit = (window, dog, block, loseText) => {
   setInterval(function () {
     let dogTop = parseInt(window.getComputedStyle(dog).getPropertyValue("top"));
-    let dogLeft = parseInt(
-      window.getComputedStyle(dog).getPropertyValue("left")
-    );
 
     let blockLeft = parseInt(
       window.getComputedStyle(block).getPropertyValue("left")
